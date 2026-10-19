@@ -1,0 +1,259 @@
+{
+	"info": {
+		"_postman_id": "8b51d3b2-652a-4f51-b01f-0e1d234a98e2",
+		"name": "Lobbies",
+		"description": "Lobby management API endpoints for XChange.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Lobby",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"OPEN\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/lobbies",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"lobbies"
+					]
+				},
+				"description": "Create a new game lobby with explicit status (OPEN or CLOSED). UUID is generated automatically."
+			},
+			"response": []
+		},
+		{
+			"name": "Create Lobby (Default)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/lobbies",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"lobbies"
+					]
+				},
+				"description": "Create a new game lobby with default status (OPEN). Body can be empty or omitted."
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Lobbies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/lobbies",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"lobbies"
+					]
+				},
+				"description": "Retrieve all game lobbies."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Lobby By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/lobbies/:id",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"lobbies",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "",
+							"description": "Lobby UUID to look up"
+						}
+					]
+				},
+				"description": "Retrieve a specific game lobby by its UUID."
+			},
+			"response": []
+		},
+		{
+			"name": "Update Lobby Status - Close",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"CLOSED\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/lobbies/:id/status",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"lobbies",
+						":id",
+						"status"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "",
+							"description": "Lobby UUID to update"
+						}
+					]
+				},
+				"description": "Update lobby status to CLOSED (must be OPEN or CLOSED)."
+			},
+			"response": []
+		},
+		{
+			"name": "Update Lobby Status - Open",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"OPEN\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/lobbies/:id/status",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"lobbies",
+						":id",
+						"status"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "",
+							"description": "Lobby UUID to update"
+						}
+					]
+				},
+				"description": "Update lobby status to OPEN (must be OPEN or CLOSED)."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Lobby By ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/lobbies/:id",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"lobbies",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "",
+							"description": "Lobby UUID to delete"
+						}
+					]
+				},
+				"description": "Delete a game lobby by UUID."
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{authToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "authToken",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
