@@ -1,0 +1,20 @@
+# Copy this file to application.properties and replace values for local development.
+
+spring.application.name=xchange-main-server
+
+# Port used by Spring Boot. The JavaFX client defaults to 8080.
+server.port=8080
+
+# PostgreSQL connection settings.
+# Create a database first: CREATE DATABASE xchange;
+spring.datasource.url=jdbc:postgresql://localhost:5432/xchange
+spring.datasource.username=xchange_user
+spring.datasource.password=application-password
+spring.datasource.driver-class-name=org.postgresql.Driver
+
+# Schema management is intentionally disabled for the application account.
+# xchange_user has CRUD access only; run src/main/resources/schema.sql as xchange_admin.
+spring.sql.init.mode=never
+
+management.endpoints.web.exposure.include=health,info
+management.endpoint.health.show-details=never

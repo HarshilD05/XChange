@@ -1,0 +1,70 @@
+.root {
+    -fx-font-family: "Inter", "Noto Sans", "SansSerif";
+    -fx-background-color: #f4f6fb;
+}
+
+.startup-page {
+    -fx-background-color: linear-gradient(to bottom right, #ffffff, #edf2ff);
+}
+
+.brand-title {
+    -fx-font-size: 34px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f3a93;
+}
+
+.page-title {
+    -fx-font-size: 16px;
+    -fx-text-fill: #667085;
+}
+
+.field-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #344054;
+}
+
+.text-field {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-border-color: #d0d5dd;
+    -fx-border-radius: 8;
+    -fx-padding: 10 12 10 12;
+    -fx-font-size: 14px;
+}
+
+.text-field:focused {
+    -fx-border-color: #4461e2;
+    -fx-border-width: 2;
+}
+
+.primary-button {
+    -fx-background-color: #4461e2;
+    -fx-background-radius: 8;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 11 18 11 18;
+    -fx-cursor: hand;
+}
+
+.primary-button:hover {
+    -fx-background-color: #354ebc;
+}
+
+.primary-button:disabled {
+    -fx-opacity: 0.65;
+}
+
+.status-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #667085;
+}
+
+.status-label.error {
+    -fx-text-fill: #b42318;
+}
+
+.status-label.success {
+    -fx-text-fill: #067647;
+}

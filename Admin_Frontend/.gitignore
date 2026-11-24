@@ -1,0 +1,5 @@
+# Builds
+target/
+
+# 
+**/application.properties
